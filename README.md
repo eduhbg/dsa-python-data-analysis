@@ -1,8 +1,6 @@
 # :computer: Basic Calculator in Python
 This project is a Lab from the course Python Fundamentals for Data Analysis of [Data Science Academy](datascienceacademy.com.br)
 
-*I made my program using IDLE Shell of Python.*
-
 Hope you enjoy it! 👽
 
 ## How it works:
