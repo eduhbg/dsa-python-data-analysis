@@ -1,57 +1,44 @@
-print('1 - Addition\n2 - Subtraction\n3 - Multiplication\n4 - Division')
+def main():
+    print('1 - Addition\n2 - Subtraction\n3 - Multiplication\n4 - Division')
 
-while True:
-    # Check if the user input is a valid option
-    user_input = input('What operation do you want to do? ')
-    try:
-        user_answer = int(user_input)
-        break
-    except ValueError:
-        print('Enter a valid option.')
-
-if (user_answer >= 1) and (user_answer <= 4):
-    continue_execution = False
-    
     while True:
-        # Check if the user input is valid to make the operations
-        value1 = input('Enter the first number: ')
-        value2 = input('Enter the second number: ')
         try:
-            num1 = int(value1)
-            num2 = int(value2)
-            continue_execution = True
+            operation = int(input('What operation do you want to do? '))
+            value1 = float(input('Enter the first number: '))
+            value2 = float(input('Enter the second number: '))
             break
-        except ValueError:
-            try:
-                num1 = float(value1)
-                num2 = float(value2)
-                continue_execution = True
-                break
-            except ValueError:
-                continue_execution = False
-                print('Enter a valid number.')
+        except:
+            print('Invalid input.')
 
-    if continue_execution == True:
-        if user_answer == 1:
-            # Addition
-            result = num1 + num2
-            print('{} + {} = {}'.format(num1, num2, result))
-        elif user_answer == 2:
-            # Subtraction
-            result = num1 - num2
-            print('{} - {} = {}'.format(num1, num2, result))
-        elif user_answer == 3:
-            # Multiplication
-            result = num1 * num2
-            print('{} * {} = {}'.format(num1, num2, result))
-        else:
-            # Division
-            if num2 == 0:
-                print('We cannot divide a number by zero.')
-            else:
-                result = num1 / num2
-                print('{} / {} = {}'.format(num1, num2, result))
+    if (operation == 4) and (value2 == 0):
+        print('We cannot divide a number by zero.')
+    else:
+        result = round(calculation(operation, value1, value2))
+        print(f'The result is {result}.')
 
-else:
-    # If the user input doesn't represent a real option, shows an error message
-    print('The option that you type is not a valid option.')
+def calculation(operation, value1, value2):
+    if operation == 1:
+        result = addition(value1, value2)
+    elif operation == 2:
+        result = subtraction(value1, value2)
+    elif operation == 3:
+        result = multiplication(value1, value2)
+    elif operation == 4:
+        result = division(value1, value2)
+
+    return result
+
+def addition(value1, value2):
+    return value1 + value2
+
+def subtraction(value1, value2):
+    return value1 - value2
+
+def multiplication(value1, value2):
+    return value1 * value2
+
+def division(value1, value2):
+    return value1 / value2
+
+if __name__ == '__main__':
+    main()
